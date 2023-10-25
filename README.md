@@ -59,7 +59,3 @@ Contributions are welcome! If you have any ideas, bug fixes, or improvements, fe
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-**Note:** Replace placeholders like `Utkarsh-m08` and `LICENSE` with your actual GitHub username and the appropriate license file.
