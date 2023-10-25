@@ -1,3 +1,3 @@
-# snap_trash
+# SnapTrash
 
 A new Flutter project.
