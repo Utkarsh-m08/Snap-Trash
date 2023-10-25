@@ -22,25 +22,25 @@ SnapTrash is a mobile application developed in Flutter that empowers users to re
 
 ## Development Timeline (November 2023)
 
-1. **November 1-7: Refinement Phase**
+**November 1-7: Refinement Phase**
    - UI Enhancement: Refining the user interface for a more intuitive experience.
-2. **November 8-14: Feature Expansion**
+**November 8-14: Feature Expansion**
    - Auto-Location Overlays: Implementing precise reporting features.
-3. **November 15-21: Notification System Implementation**
+**November 15-21: Notification System Implementation**
    - Real-time Notifications: Developing notification features.
-4. **November 22-25: Community Voucher System**
+**November 22-25: Community Voucher System**
    - Community Voucher System: Introducing leaderboard and community vouchers.
-5. **November 26-28: Platform Compatibility**
+**November 26-28: Platform Compatibility**
    - Extended Platform Support: Exploring compatibility with additional platforms.
-6. **November 29-30: Optimization and Bug Fixes**
+**November 29-30: Optimization and Bug Fixes**
    - Optimization: Conducting thorough optimization and bug fixes.
-7. **December 1: Google and Apple Authentication**
+**December 1: Google and Apple Authentication**
    - Authentication Options: Implementing additional login choices.
-8. **December 2-5: Final Testing and Quality Assurance**
+**December 2-5: Final Testing and Quality Assurance**
    - Comprehensive Testing: Ensuring seamless functionality.
-9. **December 6-7: Marketing Preparation**
+**December 6-7: Marketing Preparation**
    - Marketing Materials: Preparing for a successful launch.
-10. **December 8: Launch Day**
+**December 8: Launch Day**
     - Official Launch: Releasing SnapTrash to the public with the support of Bennett University and the Times Group.
 
 ## Getting Started
