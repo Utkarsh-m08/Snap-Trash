@@ -47,7 +47,7 @@ SnapTrash is a mobile application developed in Flutter that empowers users to re
 
 To get started with SnapTrash, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/SnapTrash.git`
+1. Clone the repository: `git clone https://github.com/Utkarsh-m08/SnapTrash.git`
 2. Navigate to the project folder: `cd SnapTrash`
 3. Install dependencies: `flutter pub get`
 4. Run the app: `flutter run`
