@@ -49,11 +49,9 @@ SnapTrash is a mobile application developed in Flutter that empowers users to re
    - Optimization: Conducting thorough optimization and bug fixes.
 7. **December 1: Google and Apple Authentication**
    - Authentication Options: Implementing additional login choices.
-8. **December 2-5: Final Testing and Quality Assurance**
+8. **December 2-6: Final Testing and Quality Assurance**
    - Comprehensive Testing: Ensuring seamless functionality.
-9. **December 6-7: Marketing Preparation**
-   - Marketing Materials: Preparing for a successful launch.
-10. **December 8: Launch Day**
+9. **December 8: Launch Day**
     - Official Launch: Releasing SnapTrash to the public with the support of Bennett University and the Times Group.
 
 ## Getting Started
