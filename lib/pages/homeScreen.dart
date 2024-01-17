@@ -25,7 +25,7 @@ class _homeScreenState extends State<homeScreen> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
-    leaderBoard(),
+    LeaderBoard(),
     ClipRRect(child: cameraMain()),
     localReports(),
   ];
