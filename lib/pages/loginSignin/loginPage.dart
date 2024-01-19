@@ -6,7 +6,7 @@ import 'package:snap_trash/pages/loginSignin/signupPage.dart';
 import 'package:snap_trash/properties/colourProp.dart';
 
 class loginPage extends StatefulWidget {
-  loginPage({super.key});
+  const loginPage({super.key});
 
   @override
   State<loginPage> createState() => _loginPageState();
@@ -37,7 +37,7 @@ class _loginPageState extends State<loginPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => homeScreen(),
+              builder: (context) => const homeScreen(),
             ),
           );
         }
@@ -55,12 +55,12 @@ class _loginPageState extends State<loginPage> {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20))),
             child: Align(
-              alignment: Alignment(0, -0.2),
+              alignment: const Alignment(0, -0.2),
               child: SingleChildScrollView(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 child: Column(
                   children: [
                     Padding(
@@ -80,7 +80,7 @@ class _loginPageState extends State<loginPage> {
                           left: 20, right: 20, top: 5, bottom: 0),
                       child: TextField(
                         controller: emailController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               width: 0,
@@ -110,7 +110,7 @@ class _loginPageState extends State<loginPage> {
                       child: TextField(
                         obscureText: true,
                         controller: passwordController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               width: 0,
@@ -169,7 +169,7 @@ class _loginPageState extends State<loginPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => signupPage(),
+                                    builder: (context) => const signupPage(),
                                   ),
                                 );
                               },

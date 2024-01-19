@@ -1,14 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:snap_trash/firebase_options.dart';
 import 'package:snap_trash/pages/cameraScreen.dart';
+import 'package:snap_trash/pages/geminiPage/gemini_integration.dart';
 import 'package:snap_trash/pages/locationPages/locationPrompt.dart';
-import 'package:snap_trash/pages/infoMainPage.dart';
 import 'package:camera/camera.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:snap_trash/pages/loginSignin/authentication/auth.dart';
 import 'package:snap_trash/properties/colourProp.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 late List<CameraDescription> _cameras;
 // late bool serviceEnabled;
@@ -23,6 +23,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Gemini.init(apiKey: 'AIzaSyDnC4CPE-xnWeib50n_w5Gi4IgqpRfsxc8');
 
   runApp(const MainApp());
 }
@@ -86,10 +87,8 @@ class _cameraMainState extends State<cameraMain> {
 
   @override
   void dispose() {
-    if (_cameraController != null) {
-      _cameraController.dispose();
-    }
-    super.dispose();
+    _cameraController.dispose();
+      super.dispose();
   }
 
   @override
@@ -167,7 +166,7 @@ class _getLocationCoordinatesState extends State<getLocationCoordinates> {
           context,
           DialogRoute(
             context: context,
-            builder: (context) => locationPromptPage(),
+            builder: (context) => const locationPromptPage(),
           ),
         );
       },

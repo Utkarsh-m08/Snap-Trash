@@ -11,7 +11,7 @@ class localReports extends StatefulWidget {
 class _localReportsState extends State<localReports> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: logout()),
     );
   }
