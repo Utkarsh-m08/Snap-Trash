@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:snap_trash/firebase_options.dart';
 import 'package:snap_trash/pages/cameraScreen.dart';
-import 'package:snap_trash/pages/geminiPage/gemini_integration.dart';
 import 'package:snap_trash/pages/locationPages/locationPrompt.dart';
 import 'package:camera/camera.dart';
 import 'package:geolocator/geolocator.dart';
