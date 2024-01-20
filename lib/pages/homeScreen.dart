@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:snap_trash/main.dart';
-import 'package:snap_trash/pages/cameraScreen.dart';
 import 'package:snap_trash/pages/leaderBoard.dart';
 import 'package:snap_trash/pages/localReports.dart';
 import 'package:snap_trash/properties/colourProp.dart';
@@ -45,7 +44,7 @@ class _homeScreenState extends State<homeScreen> {
         Container(
           clipBehavior: Clip.none,
           height: screenheight * 0.15,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),
               color: rang6),
@@ -53,7 +52,7 @@ class _homeScreenState extends State<homeScreen> {
             padding: EdgeInsets.all(screenWidth / 20),
             child: Container(
               // height: screenheight * 0.2,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   color: rang6Light),
               child: GNav(
@@ -100,14 +99,14 @@ class _homeScreenState extends State<homeScreen> {
                     text: 'Rank',
                     textSize: screenheight,
                   ),
-                  GButton(
+                  const GButton(
                     iconActiveColor: rang7,
                     iconColor: rang7,
                     icon: Icons.photo_camera_outlined,
                     textColor: rang7,
                     text: '',
                   ),
-                  GButton(
+                  const GButton(
                     iconActiveColor: rang7,
                     iconColor: rang7,
                     icon: Icons.upcoming_outlined,

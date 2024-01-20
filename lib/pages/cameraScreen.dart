@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:snap_trash/main.dart';
-import 'package:snap_trash/pages/locationPages/locationPrompt.dart';
 import 'package:snap_trash/properties/colourProp.dart';
 import 'package:camera/camera.dart';
 
@@ -20,7 +18,7 @@ class cameraScreen extends StatefulWidget {
 }
 
 class _cameraScreenState extends State<cameraScreen> {
-  bool _isFrontCamera = true;
+  final bool _isFrontCamera = true;
 
   // location
   late String lat;
@@ -55,7 +53,7 @@ class _cameraScreenState extends State<cameraScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
 
-    return Container(
+    return SizedBox(
       height: screenheight * 1.1,
       child: Stack(
         clipBehavior: Clip.none,
@@ -63,7 +61,7 @@ class _cameraScreenState extends State<cameraScreen> {
         children: [
           (widget.cameraController == null)
               ? Container(
-                  decoration: BoxDecoration(color: rangPrimary),
+                  decoration: const BoxDecoration(color: rangPrimary),
                   child: Column(
                     children: [
                       Text(
@@ -107,7 +105,7 @@ class _cameraScreenState extends State<cameraScreen> {
                     ),
                   ),
                 ),
-          Positioned(
+          const Positioned(
             bottom: 30,
             child: Row(
               children: [

@@ -23,7 +23,7 @@ class _infoMainPageState extends State<infoMainPage> {
       backgroundColor: rang6,
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -58,10 +58,27 @@ class _infoMainPageState extends State<infoMainPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
+                    SizedBox(
                       height: screenheight / 12,
                       width: screenWidth / 2,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.circular(screenheight * 0.5),
+                          ),
+                          // elevation: 5,
+                          backgroundColor: rang6,
+                          foregroundColor: rang6,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const loginPage(),
+                            ),
+                          );
+                        },
                         child: Text(
                           "Log In",
                           style: GoogleFonts.montserrat(
@@ -70,6 +87,15 @@ class _infoMainPageState extends State<infoMainPage> {
                             color: rangNeutral,
                           ),
                         ),
+                      ),
+                    ),
+                    Container(
+                      height: screenheight / 40, // space box
+                    ),
+                    SizedBox(
+                      height: screenheight / 12,
+                      width: screenWidth / 2,
+                      child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius:
@@ -83,19 +109,10 @@ class _infoMainPageState extends State<infoMainPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => loginPage(),
+                              builder: (context) => const homeScreen(),
                             ),
                           );
                         },
-                      ),
-                    ),
-                    Container(
-                      height: screenheight / 40, // space box
-                    ),
-                    Container(
-                      height: screenheight / 12,
-                      width: screenWidth / 2,
-                      child: ElevatedButton(
                         child: Text(
                           "Sign Up",
                           style: GoogleFonts.montserrat(
@@ -104,23 +121,6 @@ class _infoMainPageState extends State<infoMainPage> {
                             color: rangNeutral,
                           ),
                         ),
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(screenheight * 0.5),
-                          ),
-                          // elevation: 5,
-                          backgroundColor: rang6,
-                          foregroundColor: rang6,
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => homeScreen(),
-                            ),
-                          );
-                        },
                       ),
                     ),
                     Container(

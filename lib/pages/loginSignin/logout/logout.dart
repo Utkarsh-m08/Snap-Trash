@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:snap_trash/properties/colourProp.dart';
 
 class logout extends StatefulWidget {
@@ -24,7 +23,7 @@ class _logoutState extends State<logout> {
           onPressed: () {
             signUserOut();
           },
-          child: Text("logut")),
+          child: const Text("logut")),
     );
   }
 }
