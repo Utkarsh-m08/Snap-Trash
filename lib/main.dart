@@ -22,7 +22,6 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  Gemini.init(apiKey: 'AIzaSyDnC4CPE-xnWeib50n_w5Gi4IgqpRfsxc8');
 
   runApp(const MainApp());
 }

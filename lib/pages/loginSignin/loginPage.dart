@@ -51,150 +51,159 @@ class _loginPageState extends State<loginPage> {
 
     return Scaffold(
       // resizeToAvoidBottomInset: false,
-      backgroundColor: rangSecondary,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Container(
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Align(
-              alignment: const Alignment(0, -0.2),
-              child: SingleChildScrollView(
-                physics: const NeverScrollableScrollPhysics(),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, top: 20, bottom: 20),
-                      child: Text(
-                        "Login here!",
-                        style: GoogleFonts.montserrat(
-                          fontSize: screenWidth / 12,
-                          fontWeight: FontWeight.bold,
-                          color: rang6,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, top: 5, bottom: 0),
-                      child: TextField(
-                        controller: emailController,
-                        decoration: const InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0,
-                              color: rang6,
-                            ),
-                          ),
-                          fillColor: rang7,
-                          focusColor: rang7,
-                          labelText: "Email",
-                          helperText: '',
-                          filled: true,
-                        ),
-                        style: GoogleFonts.montserrat(
-                          // fontWeight: FontWeight.bold,
-                          fontSize: screenWidth / 20,
-                          color: rang6,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: 20,
-                        right: 20,
-                        top: 5,
-                        bottom: 0,
-                      ),
-                      child: TextField(
-                        obscureText: true,
-                        controller: passwordController,
-                        decoration: const InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0,
-                              color: rang6,
-                            ),
-                          ),
-                          fillColor: rang7,
-                          focusColor: rang7,
-                          labelText: "Password",
-                          helperText: '',
-                          filled: true,
-                        ),
-                        style: GoogleFonts.montserrat(
-                          // fontWeight: FontWeight.bold,
-                          fontSize: screenWidth / 20,
-                          color: rangSecondary,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: screenWidth / 7,
-                      width: screenWidth * 0.9,
-                      decoration: BoxDecoration(
-                          color: rang6, borderRadius: BorderRadius.circular(5)),
-                      child: TextButton(
-                        onPressed: () {
-                          login();
-                          Navigator.pop(context);
-                        },
+      // backgroundColor: rangSecondary,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              rangPrimary,
+              rangSecondary,
+            ],
+          ),
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Container(
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: Align(
+                alignment: const Alignment(0, -0.2),
+                child: SingleChildScrollView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, top: 20, bottom: 20),
                         child: Text(
-                          "Login",
+                          "Login here!",
+                          style: GoogleFonts.montserrat(
+                            fontSize: screenWidth / 12,
+                            fontWeight: FontWeight.bold,
+                            color: rang6,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, top: 5, bottom: 0),
+                        child: TextField(
+                          controller: emailController,
+                          decoration: const InputDecoration(
+                            contentPadding: EdgeInsets.all(20),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(30)),
+                              borderSide: BorderSide(
+                                width: 0,
+                                color: rang6,
+                              ),
+                            ),
+                            fillColor: rangBackground,
+                            focusColor: rang7,
+                            labelText: "Email",
+                            helperText: '',
+                            filled: true,
+                          ),
                           style: GoogleFonts.montserrat(
                             // fontWeight: FontWeight.bold,
-                            fontSize: screenWidth / 15,
-                            color: rangBackground,
+                            fontSize: screenWidth / 20,
+                            color: rang6,
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 20),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Row(
-                          children: [
-                            Text(
-                              "No Account?",
-                              style: GoogleFonts.montserrat(
-                                // fontWeight: FontWeight.bold,
-                                fontSize: screenheight / 40,
-                                color: rang6Light,
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 20,
+                          right: 20,
+                          top: 5,
+                          bottom: 20,
+                        ),
+                        child: TextField(
+                          obscureText: true,
+                          controller: passwordController,
+                          decoration: const InputDecoration(
+                            contentPadding: EdgeInsets.all(20),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(30)),
+                              borderSide: BorderSide(
+                                width: 0,
+                                color: rang6,
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const signupPage(),
-                                  ),
-                                );
-                              },
-                              child: Text(
-                                "Sign up",
-                                style: GoogleFonts.montserrat(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: screenheight / 35,
-                                  color: rang6,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              "Here",
-                              style: GoogleFonts.montserrat(
-                                // fontWeight: FontWeight.bold,
-                                fontSize: screenheight / 40,
-                                color: rang6Light,
-                              ),
-                            ),
-                          ],
+                            fillColor: rangBackground,
+                            focusColor: rang7,
+                            labelText: "Password",
+                            helperText: '',
+                            filled: true,
+                          ),
+                          style: GoogleFonts.montserrat(
+                            // fontWeight: FontWeight.bold,
+                            fontSize: screenWidth / 20,
+                            color: rangSecondary,
+                          ),
                         ),
                       ),
-                    )
-                  ],
+                      Container(
+                        height: screenWidth / 7,
+                        width: screenWidth * 0.9,
+                        decoration: BoxDecoration(
+                            color: Colors.green[900], borderRadius: BorderRadius.circular(30)),
+                        child: TextButton(
+                          onPressed: () {
+                            login();
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            "Login",
+                            style: GoogleFonts.montserrat(
+                              // fontWeight: FontWeight.bold,
+                              fontSize: screenWidth / 15,
+                              color: rangBackground,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30, right: 20),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "No Account?",
+                                style: GoogleFonts.montserrat(
+                                  // fontWeight: FontWeight.bold,
+                                  fontSize: screenheight / 40,
+                                  color: rang6Light,
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const signupPage(),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  "Sign up",
+                                  style: GoogleFonts.montserrat(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: screenheight / 35,
+                                    color: Colors.green[900],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
