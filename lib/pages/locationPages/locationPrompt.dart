@@ -138,7 +138,7 @@ class _locationPromptPageState extends State<locationPromptPage> {
                               child: ClipRRect(
                                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
                                 child: Image.asset(
-                                  'assets/images/map_temp.png',
+                                  'assets/images/map_temp.jpeg',
                                   fit: BoxFit.cover,
                                 ),
                               ),

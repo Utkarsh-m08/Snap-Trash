@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:SnapTrash/firebase_options.dart';
 import 'package:SnapTrash/pages/cameraScreen.dart';
 import 'package:SnapTrash/pages/locationPages/locationPrompt.dart';
