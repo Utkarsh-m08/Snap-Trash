@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:snap_trash/properties/colourProp.dart';
-
+import 'package:SnapTrash/properties/colourProp.dart';
   List<User> users = [
-    User('User 1', 100, 'assets/images/leaderboard/1.jpeg'),
-    User('User 2', 90, 'assets/images/leaderboard/1.jpeg'),
-    User('User 3', 80, 'assets/images/leaderboard/1.jpeg'),
-    User('User 4', 70, 'assets/images/leaderboard/1.jpeg'),
-    User('User 5', 60, 'assets/images/leaderboard/1.jpeg'),
-    User('User 6', 50, 'assets/images/leaderboard/1.jpeg'),
-    User('You', 40, 'assets/images/leaderboard/1.jpeg'),
-    User('User 8', 30, 'assets/images/leaderboard/1.jpeg'),
-    User('User 9', 20, 'assets/images/leaderboard/1.jpeg'),
-    User('User 10', 10, 'assets/images/leaderboard/1.jpeg'),
+    User('Polly Gray', 100, 'assets/images/leaderboard/1.jpeg'),
+    User('Tom Patton', 90, 'assets/images/leaderboard/2.jpeg'),
+    User('Gregory', 80, 'assets/images/leaderboard/3.jpeg'),
+    User('George Estrada', 70, 'assets/images/leaderboard/4.jpeg'),
+    User('Rhoda James', 60, 'assets/images/leaderboard/5.jpeg'),
+    User('Brent Ortega', 50, 'assets/images/leaderboard/6.jpeg'),
+    User('You', 40, 'assets/images/leaderboard/7.jpeg'),
+    User('Clara Hunt', 30, 'assets/images/leaderboard/8.jpeg'),
+    User('Milton Fuller', 20, 'assets/images/leaderboard/9.jpeg'),
+    User('Kathryn Flores', 10, 'assets/images/leaderboard/10.jpeg'),
   ];
 class LeaderBoard extends StatefulWidget {
   const LeaderBoard({super.key});
@@ -129,7 +128,7 @@ class TopUsers extends StatelessWidget {
               Stack(
                 children: [
                   const CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/leaderboard/1.jpeg'),
+                  backgroundImage: AssetImage('assets/images/leaderboard/2.jpeg'),
                   radius: 40,
                   ),
                   Container(
@@ -220,7 +219,7 @@ class TopUsers extends StatelessWidget {
               Stack(
                 children: [
                   const CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/leaderboard/1.jpeg'),
+                  backgroundImage: AssetImage('assets/images/leaderboard/3.jpeg'),
                   radius: 40,
                   ),
                   Container(

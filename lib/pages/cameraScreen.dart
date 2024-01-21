@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:snap_trash/main.dart';
-import 'package:snap_trash/properties/colourProp.dart';
+import 'package:SnapTrash/main.dart';
+import 'package:SnapTrash/properties/colourProp.dart';
 import 'package:camera/camera.dart';
 
 class cameraScreen extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:snap_trash/pages/homeScreen.dart';
-import 'package:snap_trash/pages/infoMainPage.dart';
+import 'package:SnapTrash/pages/homeScreen.dart';
+import 'package:SnapTrash/pages/infoMainPage.dart';
 
 class auth extends StatelessWidget {
   const auth({super.key});
