@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:snap_trash/pages/homeScreen.dart';
-import 'package:snap_trash/pages/infoMainPage.dart';
-import 'package:snap_trash/pages/loginSignin/loginPage.dart';
-import 'package:snap_trash/properties/colourProp.dart';
+import 'package:SnapTrash/pages/homeScreen.dart';
+import 'package:SnapTrash/pages/infoMainPage.dart';
+import 'package:SnapTrash/pages/loginSignin/loginPage.dart';
+import 'package:SnapTrash/properties/colourProp.dart';
 
 class signupPage extends StatefulWidget {
   const signupPage({super.key});

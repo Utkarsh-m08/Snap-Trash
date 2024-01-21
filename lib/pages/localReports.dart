@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snap_trash/pages/loginSignin/logout/logout.dart';
+import 'package:SnapTrash/pages/loginSignin/logout/logout.dart';
 
 class localReports extends StatefulWidget {
   const localReports({super.key});

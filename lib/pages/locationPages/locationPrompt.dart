@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:snap_trash/pages/reportPages/report_page.dart';
-import 'package:snap_trash/properties/colourProp.dart';
+import 'package:SnapTrash/pages/reportPages/report_page.dart';
+import 'package:SnapTrash/properties/colourProp.dart';
 
 class locationPromptPage extends StatefulWidget {
   const locationPromptPage({super.key});
@@ -74,9 +74,9 @@ class _locationPromptPageState extends State<locationPromptPage> {
 
     return Scaffold(
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        // physics: NeverScrollableScrollPhysics(),
         child: Container(
-          height: screenheight,
+          height: screenheight * 0.9698,
           width: screenWidth,
           child: Stack(
             children: [
@@ -107,7 +107,7 @@ class _locationPromptPageState extends State<locationPromptPage> {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
-                        height: screenheight * 0.53,
+                        height: screenheight * 0.5,
                         color: rang6,
                         child: Column(
                           children: [

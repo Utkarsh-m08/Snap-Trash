@@ -1,13 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
-import 'package:snap_trash/firebase_options.dart';
-import 'package:snap_trash/pages/cameraScreen.dart';
-import 'package:snap_trash/pages/locationPages/locationPrompt.dart';
+import 'package:SnapTrash/firebase_options.dart';
+import 'package:SnapTrash/pages/cameraScreen.dart';
+import 'package:SnapTrash/pages/locationPages/locationPrompt.dart';
 import 'package:camera/camera.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:snap_trash/pages/loginSignin/authentication/auth.dart';
-import 'package:snap_trash/properties/colourProp.dart';
+import 'package:SnapTrash/pages/loginSignin/authentication/auth.dart';
+import 'package:SnapTrash/properties/colourProp.dart';
 
 late List<CameraDescription> _cameras;
 // late bool serviceEnabled;

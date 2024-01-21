@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snap_trash/properties/colourProp.dart';
+import 'package:SnapTrash/properties/colourProp.dart';
 
   List<User> users = [
     User('User 1', 100, 'assets/images/leaderboard/1.jpeg'),
