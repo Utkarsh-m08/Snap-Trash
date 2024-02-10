@@ -155,6 +155,12 @@ class _loginPageState extends State<loginPage> {
                           onPressed: () {
                             login();
                             Navigator.pop(context);
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => const homeScreen(),
+                            //   ),
+                            // );
                           },
                           child: Text(
                             "Login",

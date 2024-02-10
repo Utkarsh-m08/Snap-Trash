@@ -1,9 +1,14 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:SnapTrash/pages/reportPages/report_page.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
+import 'package:convert/convert.dart';
 
 class locationPromptPage extends StatefulWidget {
   const locationPromptPage({super.key});
@@ -17,6 +22,8 @@ class _locationPromptPageState extends State<locationPromptPage> {
   late String long;
   String? locationMessage;
   bool locationLoaded = false;
+  bool captionLoaded = false;
+  TextEditingController _captionController = TextEditingController();
 
   // for location to work
   Future<Position> getCurrentLocation() async {
@@ -50,27 +57,82 @@ class _locationPromptPageState extends State<locationPromptPage> {
     super.initState();
     _loadLocation();
   }
-
   Future<void> _loadLocation() async {
-    try {
-      Position position = await getCurrentLocation();
-      setState(() {
-        lat = '${position.latitude}';
-        long = '${position.longitude}';
-        locationMessage = 'Latitude: $lat, Longitude: $long';
-        locationLoaded = true;
-      });
-    } catch (e) {
-      print('Error loading location: $e');
-    }
+  try {
+    Position position = await getCurrentLocation();
+    setState(() {
+      lat = '${position.latitude}';
+      long = '${position.longitude}';
+      locationMessage = 'Latitude: $lat, Longitude: $long';
+      locationLoaded = true;
+    });
+
+    ByteData data = await rootBundle.load('assets/img.png');
+    List<int> imageBytes = data.buffer.asUint8List();
+    String base64Image = base64Encode(imageBytes);
+
+
+    final dio = Dio();
+    final response = await dio.post(
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-vision:generateContent?key=AIzaSyDnC4CPE-xnWeib50n_w5Gi4IgqpRfsxc8',
+      data: {
+        "contents": [
+          {
+            "parts": [
+              {
+                "text": "write a one line caption to report this image to authorities. Don't include any locations or anything you don't know about. Just describe the image.\n"
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": base64Image,
+                }
+              }
+            ]
+          }
+        ],
+        "generationConfig": {
+          "temperature": 0,
+          "topK": 32,
+          "topP": 1,
+          "maxOutputTokens": 4096,
+          "stopSequences": []
+        },
+        "safetySettings": [
+          {
+            "category": "HARM_CATEGORY_HARASSMENT",
+            "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+          },
+          {
+            "category": "HARM_CATEGORY_HATE_SPEECH",
+            "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+          },
+          {
+            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+          },
+          {
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+          }
+        ]
+      },
+    );
+    print(response.data);
+    print(response.data['candidates'][0]['content']['parts'][0]['text']);
+    _captionController.text = response.data['candidates'][0]['content']['parts'][0]['text'];
+    captionLoaded = true;
+  } catch (e) {
+    print('Error loading location: $e');
   }
+}
+
+
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
-    TextEditingController _captionController = TextEditingController();
-    _captionController.text = 'Overflowing dumpster posing health hazards';
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -107,16 +169,17 @@ class _locationPromptPageState extends State<locationPromptPage> {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
-                        height: screenheight * 0.5,
+                        height: screenheight * 0.53,
                         color: rang6,
                         child: Column(
                           children: [
                             TextField(
                               controller: _captionController,
+                              maxLines: null,
                               decoration: InputDecoration(
                                 filled: true,
                                 fillColor: rang6Light2,
-                                hintText: 'Add a caption',
+                                hintText: captionLoaded ? 'Add a caption' : 'Generating from Google Gemini...',
                                 hintStyle: GoogleFonts.montserrat(
                                   fontSize: 18,
                                   color: const Color.fromARGB(185, 255, 255, 255),

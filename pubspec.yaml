@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: '>=3.0.0'
+  sdk: '>=3.2.0 <4.0.0'
 
 dependencies:
   camera: ^0.10.5+5
@@ -18,9 +18,10 @@ dependencies:
   # location: ^5.0.3
   lottie: ^2.3.2
   # permission_handler: ^11.0.1
-  flutter_gemini: ^2.0.1
   google_maps_flutter: ^2.5.3
   font_awesome_flutter: ^10.6.0
+  google_gemini: ^0.1.2
+  dio: 
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +32,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/img.png
+    - assets/
     - assets/animations/
     - assets/images/
     - assets/images/leaderboard/
