@@ -1,3 +1,4 @@
+import 'package:SnapTrash/pages/leaderBoard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
@@ -207,15 +208,22 @@ class _ReportPageState extends State<ReportPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          margin: const EdgeInsets.only(left: 10),
-                          child: const Text(
-                            'Send to authorities',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 17,
-                              fontWeight: FontWeight.w400,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, 
+                              MaterialPageRoute(builder: (context) => const LeaderBoard())
+                          );
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 10),
+                            child: const Text(
+                              'Send to authorities',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                         ),
