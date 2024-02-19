@@ -1,120 +1,94 @@
-import 'package:SnapTrash/locationModule.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:SnapTrash/main.dart';
+import 'package:SnapTrash/pages/locationPages/locationPrompt.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
 
-class cameraScreen extends StatefulWidget {
-  const cameraScreen({
-    super.key,
-    this.cameraController,
-    required this.initCamera,
-  });
-  final CameraController? cameraController;
-  final Future<void> Function({required bool frontCamera}) initCamera;
+class CameraMain extends StatefulWidget {
+  const CameraMain({super.key});
 
   @override
-  State<cameraScreen> createState() => _cameraScreenState();
+  State<CameraMain> createState() => _CameraMainState();
 }
 
-class _cameraScreenState extends State<cameraScreen> {
-  final bool _isFrontCamera = true;
+class _CameraMainState extends State<CameraMain> {
+  final CameraDescription camera = getCamera().first;
+  late CameraController _controller;
+  late Future<void> _initializeControllerFuture;
 
-  // location
-  late String lat;
-  late String long;
-  late String locationMessage;
+  @override
+  void initState() {
+    super.initState();
+    _controller = CameraController(
+      camera,
+      ResolutionPreset.medium,
+    );
+    _initializeControllerFuture = _controller.initialize();
+  }
 
-  // for location to work
-  // Future<Position> _getCurrentLocation() async {
-  //   bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  //   if (!serviceEnabled) {
-  //     return Future.error('location services are dissabled');
-  //   }
-
-  //   LocationPermission permission = await Geolocator.checkPermission();
-  //   if (permission == LocationPermission.denied) {
-  //     permission = await Geolocator.requestPermission();
-  //     if (permission == LocationPermission.denied) {
-  //       return Future.error('location Permission are denied');
-  //     }
-  //   }
-
-  //   if (permission == LocationPermission.deniedForever) {
-  //     return Future.error(
-  //         'locationpermission denied,  we cannot process request');
-  //   }
-  //   return await Geolocator.getCurrentPosition();
-  // }
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    // size variable
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenheight = MediaQuery.of(context).size.height;
-
-    return SizedBox(
-      height: screenheight * 1.1,
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.bottomCenter,
-        children: [
-          (widget.cameraController == null)
-              ? Container(
-                  decoration: const BoxDecoration(color: rangPrimary),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Start reporting Trash",
-                        style: GoogleFonts.montserrat(
-                          // fontWeight: FontWeight.bold,
-                          fontSize: screenheight / 30,
-                          color: rang6,
-                        ),
-                      ),
-                      Text(
-                        "Click the button bellow",
-                        style: GoogleFonts.montserrat(
-                          // fontWeight: FontWeight.bold,
-                          fontSize: screenheight / 30,
-                          color: rang6,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              : GestureDetector(
-                  onDoubleTap: () {
-                    _isFrontCamera != _isFrontCamera;
-                    widget.initCamera(frontCamera: _isFrontCamera);
-
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => locationPromptPage(),
-                    //   ),
-                    // );
-                    print("DOUBLE TAP");
-                  },
-                  child: Container(
-                    clipBehavior: Clip.none,
-                    color: rang6,
-                    child: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child: CameraPreview(widget.cameraController!),
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      body: FutureBuilder<void>(
+        future: _initializeControllerFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return SizedBox(
+              height: screenHeight,
+              width: screenWidth,
+              child: Stack(
+                fit: StackFit.expand,
+                children: <Widget>[
+                  CameraPreview(_controller),
+                  Positioned(
+                    top: screenHeight * 0.73,
+                    left: screenWidth * .5 - screenHeight * 0.15 / 2,
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        try {
+                          await _initializeControllerFuture;
+                          final image = await _controller.takePicture();
+              
+                          if (!context.mounted) return;
+                          await Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => LocationPromptPage(
+                                imagePath: image.path,
+                              ),
+                            ),
+                          );
+                        } catch (e) {
+                          print(e);
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                    ),
+                    child: Icon(
+                      Icons.circle_outlined,
+                      size: screenHeight * 0.1,
+                      color: rang6,
+                    ),
                     ),
                   ),
-                ),
-          const Positioned(
-            bottom: 30,
-            child: Row(
-              children: [
-                getLocationCoordinates(),
-              ],
-            ),
-          )
-        ],
+                ],
+              ),
+            );
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
       ),
+      
     );
   }
 }

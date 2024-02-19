@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:SnapTrash/pages/loginSignin/logout/logout.dart';
 
-class localReports extends StatefulWidget {
-  const localReports({super.key});
+class LocalReports extends StatefulWidget {
+  const LocalReports({super.key});
 
   @override
-  State<localReports> createState() => _localReportsState();
+  State<LocalReports> createState() => _LocalReportsState();
 }
 
-class _localReportsState extends State<localReports> {
+class _LocalReportsState extends State<LocalReports> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

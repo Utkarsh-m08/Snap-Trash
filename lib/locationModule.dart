@@ -1,20 +1,15 @@
+import 'package:SnapTrash/main.dart';
 import 'package:SnapTrash/pages/locationPages/locationPrompt.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
-class getLocationCoordinates extends StatefulWidget {
-  const getLocationCoordinates({super.key});
+
+class LocationModule {
   static String? locationMessage;
-
-  @override
-  State<getLocationCoordinates> createState() => _getLocationCoordinatesState();
-}
-
-class _getLocationCoordinatesState extends State<getLocationCoordinates> {
   late String lat;
   late String long;
-  late String? locationMessage;
 
   // for location to work
   Future<Position> getCurrentLocation() async {
@@ -43,44 +38,17 @@ class _getLocationCoordinatesState extends State<getLocationCoordinates> {
     return await Geolocator.getCurrentPosition();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    String? locationMessagePass() {
-      return locationMessage;
+  void getLocation() async {
+    try {
+      // Get current location
+      final value = await getCurrentLocation();
+      lat = '${value.latitude}';
+      long = '${value.longitude}';
+      locationMessage = 'latitude: $lat, Longitude: $long';
+      print(locationMessage);
+    } catch (e) {
+      print('Error: $e');
+      // Handle errors if needed
     }
-
-    // size variable
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenheight = MediaQuery.of(context).size.height;
-
-    return ElevatedButton(
-      onPressed: () {
-        getCurrentLocation().then(
-          (value) {
-            lat = '${value.latitude}';
-            long = '${value.longitude}';
-            locationMessage = 'latitude: $lat, Longitude: $long';
-            print(locationMessage);
-          },
-        );
-        Navigator.push(
-          context,
-          DialogRoute(
-            context: context,
-            builder: (context) => const locationPromptPage(),
-          ),
-        );
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.transparent,
-        // foregroundColor: Colors.black,
-        elevation: 0,
-      ),
-      child: Icon(
-        Icons.circle_outlined,
-        size: screenheight * 0.1,
-        color: rangBackground,
-      ),
-    );
   }
 }
