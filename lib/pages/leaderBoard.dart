@@ -26,7 +26,13 @@ class _LeaderBoardState extends State<LeaderBoard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Leaderboard'),
+        title: const Text('Leaderboard',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         elevation: 0,
         centerTitle: true,
         backgroundColor: rang6,

@@ -1,6 +1,7 @@
+import 'package:SnapTrash/locationModule.dart';
+import 'package:SnapTrash/pages/cameraScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:SnapTrash/main.dart';
 import 'package:SnapTrash/pages/leaderBoard.dart';
 import 'package:SnapTrash/pages/localReports.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
@@ -25,8 +26,8 @@ class _homeScreenState extends State<homeScreen> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     LeaderBoard(),
-    ClipRRect(child: cameraMain()),
-    localReports(),
+    ClipRRect(child: CameraMain()),
+    LocalReports(),
   ];
 
   @override

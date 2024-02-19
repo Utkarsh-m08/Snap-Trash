@@ -25,6 +25,9 @@ class _ReportPageState extends State<ReportPage> {
 
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: rang6,
       body: Stack(
@@ -43,12 +46,12 @@ class _ReportPageState extends State<ReportPage> {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: screenHeight * 0.05,
                 ),
                 Container(
-                  height: 100,
-                  width: 300,
+                  height: screenHeight * 0.14,
+                  width: screenWidth * 0.8,
                   padding: const EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -65,15 +68,15 @@ class _ReportPageState extends State<ReportPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: screenHeight * 0.03,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: 45,
-                      width: 170,
+                      height: screenHeight * 0.06,
+                      width: screenWidth * 0.4,
                       padding: const EdgeInsets.all(10),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -99,12 +102,12 @@ class _ReportPageState extends State<ReportPage> {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      width: 20,
+                    SizedBox(
+                      width: screenWidth * 0.05,
                     ),
                     Container(
-                      height: 45,
-                      width: 180,
+                      height: screenHeight * 0.06,
+                      width: screenWidth * 0.45,
                       padding: const EdgeInsets.all(10),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -132,13 +135,13 @@ class _ReportPageState extends State<ReportPage> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: screenHeight * 0.02,
                 ),
                 Container(
-                  height: 350,
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                  height: screenHeight * 0.45,
+                  width: screenWidth,
+                  margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.03, vertical: 0),
                   decoration: BoxDecoration(
                     color: rang6,
                     borderRadius: BorderRadius.circular(30),
@@ -147,8 +150,8 @@ class _ReportPageState extends State<ReportPage> {
                     itemCount: authorities.length,
                     itemBuilder: (context, index) {
                       return Container(
-                        height: 64,
-                        margin: const EdgeInsets.symmetric(horizontal: 0, vertical: .5),
+                        height: screenHeight * 0.08,
+                        margin: EdgeInsets.symmetric(horizontal: 0, vertical: screenHeight * 0.0009),
                         decoration: BoxDecoration(
                           color: rang6Light2,
                           borderRadius: BorderRadius.vertical(
@@ -191,13 +194,13 @@ class _ReportPageState extends State<ReportPage> {
                     }
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: screenHeight * 0.035,
                 ),
                 InkWell(
                   child: Container(
-                    height: 45,
-                    width: 220,
+                    height: screenHeight * 0.06,
+                    width: screenWidth * 0.6,
                     margin: const EdgeInsets.only(top: 20),
                     padding: const EdgeInsets.all(10),
                     alignment: Alignment.center,
@@ -228,18 +231,18 @@ class _ReportPageState extends State<ReportPage> {
                           ),
                         ),
                         Container(
-                          height: 50,
-                          width: 30,
+                          height: screenHeight * 0.06,
+                          width: screenWidth * 0.08,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(100),
                           ),
                           child: Container(
                             margin: const EdgeInsets.only(left: 3),
-                            child: const Icon(
+                            child: Icon(
                               Icons.send,
                               color: Colors.black,
-                              size: 20,
+                              size: screenHeight / 35,
                             ),
                           ),
                         )
@@ -252,13 +255,13 @@ class _ReportPageState extends State<ReportPage> {
           ),
           IconButton(
             alignment: Alignment.topLeft,
-            padding: const EdgeInsets.only(top: 40, left: 20),
+            padding: EdgeInsets.only(top: screenHeight * 0.045, left: screenWidth * 0.05),
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios,
-              size: 30,
+              size: screenHeight / 30,
             ),
             color: Colors.white,
           ),
