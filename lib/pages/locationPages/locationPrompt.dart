@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +6,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:SnapTrash/pages/reportPages/report_page.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
-import 'package:convert/convert.dart';
 
 class locationPromptPage extends StatefulWidget {
   const locationPromptPage({super.key});

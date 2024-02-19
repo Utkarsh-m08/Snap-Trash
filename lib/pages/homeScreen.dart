@@ -1,6 +1,6 @@
+import 'package:SnapTrash/cameraModule.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:SnapTrash/main.dart';
 import 'package:SnapTrash/pages/leaderBoard.dart';
 import 'package:SnapTrash/pages/localReports.dart';
 import 'package:SnapTrash/properties/colourProp.dart';

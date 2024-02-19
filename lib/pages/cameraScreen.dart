@@ -1,6 +1,6 @@
+import 'package:SnapTrash/locationModule.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:SnapTrash/main.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
 import 'package:camera/camera.dart';
 
