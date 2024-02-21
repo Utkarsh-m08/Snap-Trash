@@ -1,5 +1,6 @@
 import 'package:SnapTrash/locationModule.dart';
 import 'package:SnapTrash/pages/cameraScreen.dart';
+import 'package:SnapTrash/pages/coming_soon.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:SnapTrash/pages/leaderBoard.dart';
@@ -28,6 +29,7 @@ class _homeScreenState extends State<homeScreen> {
     LeaderBoard(),
     ClipRRect(child: CameraMain()),
     LocalReports(),
+    ComingSoon()
   ];
 
   @override
@@ -44,7 +46,7 @@ class _homeScreenState extends State<homeScreen> {
       bottomNavigationBar: Stack(children: [
         Container(
           clipBehavior: Clip.none,
-          height: screenheight * 0.15,
+          height: screenheight * 0.13,
           decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),
@@ -88,7 +90,7 @@ class _homeScreenState extends State<homeScreen> {
                 tabBackgroundColor:
                     rang6Light2, // selected tab background color
                 padding: EdgeInsets.symmetric(
-                  horizontal: screenWidth / 15,
+                  horizontal: screenWidth / 25,
                   vertical: screenheight * 0.02,
                 ), // navigation bar padding
                 tabs: [
@@ -113,6 +115,13 @@ class _homeScreenState extends State<homeScreen> {
                     icon: Icons.upcoming_outlined,
                     textColor: rang7,
                     text: 'Reports',
+                  ),
+                  const GButton(
+                    iconActiveColor: rang7,
+                    iconColor: rang7,
+                    icon: Icons.timelapse_rounded,
+                    textColor: rang7,
+                    text: 'Coming Soon',
                   ),
                 ],
               ),
