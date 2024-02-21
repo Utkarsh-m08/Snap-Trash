@@ -14,19 +14,21 @@ class NewReports extends StatefulWidget {
 }
 
 class _NewReportsState extends State<NewReports> {
-  late Future<List<Map<String, dynamic>>> futureData;
+  late Future<List<DocumentSnapshot>> futureData;
 
-  Future<List<Map<String, dynamic>>> fetchData() async {
+  Future<List<DocumentSnapshot>> fetchData() async {
   QuerySnapshot<Map<String, dynamic>> querySnapshot =
-      await FirebaseFirestore.instance.collection('reports').get();
-  // print(querySnapshot.docs.map((doc) => doc.data()).toList());
-  return querySnapshot.docs.map((doc) => doc.data()).toList();
+      await FirebaseFirestore.instance.collection('reports').where('status', isEqualTo: 0).get();
+  return querySnapshot.docs;
 }
+
+  Future<void> updateStatus(DocumentSnapshot document) async {
+    await document.reference.update({'status': 1});
+  }
 
   @override
   void initState() {
     futureData = fetchData();
-    // print(futureData.toString());
     super.initState();
   }
 
@@ -34,7 +36,7 @@ class _NewReportsState extends State<NewReports> {
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-    return FutureBuilder<List<Map<String, dynamic>>>(
+    return FutureBuilder<List<DocumentSnapshot>>(
       future: futureData,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -55,6 +57,7 @@ class _NewReportsState extends State<NewReports> {
             child: ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
+                var document = snapshot.data![index];
                 String image = snapshot.data![index]['image'];
                 String caption = snapshot.data![index]['caption'];
                 String location = snapshot.data![index]['location'];
@@ -99,6 +102,30 @@ class _NewReportsState extends State<NewReports> {
                               color: rangBackground,
                             ),
                           ),
+                          Container(
+                            width: screenWidth,
+                            alignment: Alignment.center,
+                            // color: Colors.red,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: rangPrimary,
+                              ),
+                              onPressed: () {
+                                updateStatus(document);
+                                setState(() {
+                                  futureData = fetchData();
+                                });
+                              },
+                              child: Text(
+                                'Done',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: screenWidth * 0.05,
+                                  color: rang6,
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),
