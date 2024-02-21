@@ -7,6 +7,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:SnapTrash/pages/reportPages/report_page.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
+import 'package:SnapTrash/firestore_user.dart';
 
 class LocationPromptPage extends StatefulWidget {
   const LocationPromptPage({super.key, required this.imagePath});
@@ -18,6 +19,7 @@ class LocationPromptPage extends StatefulWidget {
 class _LocationPromptPageState extends State<LocationPromptPage> {
   late String lat;
   late String long;
+  late String base64Image;
   String? locationMessage;
   bool locationLoaded = false;
   bool captionLoaded = false;
@@ -67,7 +69,7 @@ class _LocationPromptPageState extends State<LocationPromptPage> {
 
     ByteData data = await File(widget.imagePath).readAsBytes().then((value) => ByteData.view(value.buffer));
     List<int> imageBytes = data.buffer.asUint8List();
-    String base64Image = base64Encode(imageBytes);
+    base64Image = base64Encode(imageBytes);
 
 
     final dio = Dio();
@@ -78,7 +80,7 @@ class _LocationPromptPageState extends State<LocationPromptPage> {
           {
             "parts": [
               {
-                "text": "Write a short, one line caption to report this to the authorities. Remember you are not just describing the image but generating a caption for the image so that authorities can understand in less and simple words. Describe the quantity, type and one or two other relevant things related to the trash shown in the image but if the caption is becoming too big, meaning bigger than 10 to 15 words then just describe the type and quantity of trash, but don't keep it too short also atleast you should what kind of trash is this and how much, where the trash is lying or any other relevant thing. Not too short not too big. Around 10 - 15 words. And remember to not refer to this image in the caption, meaning do not write anything like 'The image shows...' or 'in this image...' or something similar. Do not produce any location or anything you don't know about. Keep it in single line only. Also if this does not seem like an image of trash or something similar then just produce: 'This doesn't seem like the image of trash.'. Remember to produce this alt message at all cost if the image doesn't seem anything remotely like trash or litter. Please I cannot emphasise this enough. It is very important. You will be provided with the image of some litter only if it is not that Just produce this alt message.\n"
+                "text": "Write a short, one line caption to report this to the authorities. Remember you are not just describing the image but generating a caption for the image so that authorities can understand in less and simple words. Describe the quantity, type and one or two other relevant things related to the trash shown in the image but if the caption is becoming too big, meaning bigger than 10 to 15 words then just describe the type and quantity of trash, but don't keep it too short also atleast you should what kind of trash is this and how much, where the trash is lying or any other relevant thing. Not too short not too big. Around 10 - 15 words. And remember to not refer to this image in the caption, meaning do not write anything like 'The image shows...' or 'in this image...' or something similar. Do not produce any location or anything you don't know about. Keep it in single line only. Also if this does not seem like an image of trash or something similar then just produce: 'This doesn't seem like the image of trash.'. Remember to produce this alt message at all cost if the image doesn't seem anything remotely like trash or litter, unless you are extremely confident that it is an image of some trash then produce this alt text. Please I cannot emphasise this enough. It is very important. You will be provided with the image of some litter only if it is not that Just produce this alt message.\n"
               },
               {
                 "inlineData": {
@@ -99,19 +101,19 @@ class _LocationPromptPageState extends State<LocationPromptPage> {
         "safetySettings": [
           {
             "category": "HARM_CATEGORY_HARASSMENT",
-            "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+            "threshold": "BLOCK_NONE"
           },
           {
             "category": "HARM_CATEGORY_HATE_SPEECH",
-            "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+            "threshold": "BLOCK_NONE"
           },
           {
             "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-            "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+            "threshold": "BLOCK_NONE"
           },
           {
             "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-            "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+            "threshold": "BLOCK_NONE"
           }
         ]
       },
@@ -294,11 +296,12 @@ class _LocationPromptPageState extends State<LocationPromptPage> {
                             InkWell(
                               onTap: () {
                                 Navigator.push(
-                                  context, 
+                                  context,
                                   MaterialPageRoute(
                                   builder: (context) => ReportPage(location: locationMessage!,),
                                   ),
                                 );
+                                FirestoreUser().addData(base64Image, _captionController.text, locationMessage!);
                               },
                               child: Container(
                                 height: screenHeight * 0.045,
