@@ -1,3 +1,4 @@
+import 'package:SnapTrash/pages/admin/newReports.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,15 +33,16 @@ class _AdminHomePageState extends State<AdminHomePage> {
       ),
       body: Column(
         children: [
-          Text(
-            "",
-            style: GoogleFonts.sourceCodePro(
-              fontWeight: FontWeight.w500,
-              fontSize: screenWidth * 0.12,
-              color: rangBackground,
-            ),
+          // Text(
+          //   "",
+          //   style: GoogleFonts.sourceCodePro(
+          //     fontWeight: FontWeight.w500,
+          //     fontSize: screenWidth * 0.12,
+          //     color: rangBackground,
+          //   ),
+          // ),
             //add list builder here 
-          ),
+            NewReports(),
         ],
       ),
     );
