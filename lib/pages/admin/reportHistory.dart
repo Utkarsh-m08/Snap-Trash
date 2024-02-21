@@ -1,17 +1,16 @@
 import 'package:SnapTrash/pages/profile.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
 import 'package:flutter/material.dart';
-import 'package:SnapTrash/pages/loginSignin/logout/logout.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LocalReports extends StatefulWidget {
-  const LocalReports({super.key});
+class AdminReportHistory extends StatefulWidget {
+  const AdminReportHistory({super.key});
 
   @override
-  State<LocalReports> createState() => _LocalReportsState();
+  State<AdminReportHistory> createState() => _AdminReportHistoryState();
 }
 
-class _LocalReportsState extends State<LocalReports> {
+class _AdminReportHistoryState extends State<AdminReportHistory> {
   @override
   Widget build(BuildContext context) {
     // size variable

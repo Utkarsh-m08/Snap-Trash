@@ -1,17 +1,15 @@
-import 'package:SnapTrash/pages/profile.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
 import 'package:flutter/material.dart';
-import 'package:SnapTrash/pages/loginSignin/logout/logout.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LocalReports extends StatefulWidget {
-  const LocalReports({super.key});
+class AdminHomePage extends StatefulWidget {
+  const AdminHomePage({super.key});
 
   @override
-  State<LocalReports> createState() => _LocalReportsState();
+  State<AdminHomePage> createState() => _AdminHomePageState();
 }
 
-class _LocalReportsState extends State<LocalReports> {
+class _AdminHomePageState extends State<AdminHomePage> {
   @override
   Widget build(BuildContext context) {
     // size variable
@@ -24,30 +22,13 @@ class _LocalReportsState extends State<LocalReports> {
         // shadowColor: rangBackground,
         backgroundColor: rang6,
         title: Text(
-          "Past Reports",
+          "New Reports",
           style: GoogleFonts.montserrat(
             fontWeight: FontWeight.w600,
             fontSize: screenWidth * 0.065,
             color: rangBackground,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => profile(),
-                ),
-              );
-            },
-            icon: Icon(
-              Icons.person_pin,
-              color: rang7,
-              size: screenWidth * 0.08,
-            ),
-          ),
-        ],
       ),
       body: Column(
         children: [
@@ -58,7 +39,7 @@ class _LocalReportsState extends State<LocalReports> {
               fontSize: screenWidth * 0.12,
               color: rangBackground,
             ),
-            //add list builder here
+            //add list builder here 
           ),
         ],
       ),

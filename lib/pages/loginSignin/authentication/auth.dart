@@ -1,3 +1,6 @@
+import 'package:SnapTrash/pages/admin/adminHomePage.dart';
+import 'package:SnapTrash/pages/admin/adminNavBar.dart';
+import 'package:SnapTrash/pages/loginSignin/loginPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:SnapTrash/pages/homeScreen.dart';
@@ -14,7 +17,11 @@ class auth extends StatelessWidget {
         builder: (context, snapshot) {
           // check if user logged in
           if (snapshot.hasData) {
-            return const homeScreen();
+            if (const loginPage().dropdownValue == "User") {
+              return const homeScreen();
+            } else {
+              return const AdminNavBar();
+            }
             // Navigator.pop(context);
           }
 

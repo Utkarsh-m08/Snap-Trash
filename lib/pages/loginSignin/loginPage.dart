@@ -8,13 +8,18 @@ import 'package:SnapTrash/properties/colourProp.dart';
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
 
+  get dropdownValue => _dropdownValue;
+
   @override
-  State<loginPage> createState() => _loginPageState();
+  State<loginPage> createState() => loginPageState();
 }
 
-class _loginPageState extends State<loginPage> {
-  // variable
+const List<String> list = <String>["User", "Admin"];
 
+String _dropdownValue = list.first;
+
+class loginPageState extends State<loginPage> {
+  // String _dropdownValue = list.first;
   // text controllers
   var phoneNumberController = TextEditingController();
   var emailController = TextEditingController();
@@ -44,11 +49,6 @@ class _loginPageState extends State<loginPage> {
       }
     }
 
-    // signout
-    // void signUserOut() async {
-    //   FirebaseAuth.instance.signOut();
-    // }
-
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       // backgroundColor: rangSecondary,
@@ -76,7 +76,11 @@ class _loginPageState extends State<loginPage> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
-                            left: 20, right: 20, top: 20, bottom: 20),
+                          left: 20,
+                          right: 20,
+                          top: 20,
+                          bottom: 20,
+                        ),
                         child: Text(
                           "Login here!",
                           style: GoogleFonts.montserrat(
@@ -86,15 +90,43 @@ class _loginPageState extends State<loginPage> {
                           ),
                         ),
                       ),
+                      // drop down for admin
+                      DropdownButton<String>(
+                        value: _dropdownValue,
+                        icon: const Icon(Icons.arrow_downward),
+                        elevation: 16,
+                        style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.bold,
+                          fontSize: screenWidth * 0.05,
+                          color: rang6,
+                        ),
+                        onChanged: (String? value) {
+                          setState(() {
+                            _dropdownValue = value!;
+                          });
+                        },
+                        items:
+                            list.map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(
-                            left: 20, right: 20, top: 5, bottom: 0),
+                          left: 20,
+                          right: 20,
+                          top: 40,
+                          bottom: 0,
+                        ),
                         child: TextField(
                           controller: emailController,
                           decoration: const InputDecoration(
                             contentPadding: EdgeInsets.all(20),
                             enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide: BorderSide(
                                 width: 0,
                                 color: rang6,
@@ -126,7 +158,8 @@ class _loginPageState extends State<loginPage> {
                           decoration: const InputDecoration(
                             contentPadding: EdgeInsets.all(20),
                             enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide: BorderSide(
                                 width: 0,
                                 color: rang6,
@@ -149,7 +182,8 @@ class _loginPageState extends State<loginPage> {
                         height: screenWidth / 7,
                         width: screenWidth * 0.9,
                         decoration: BoxDecoration(
-                            color: Colors.green[900], borderRadius: BorderRadius.circular(30)),
+                            color: Colors.green[900],
+                            borderRadius: BorderRadius.circular(30)),
                         child: TextButton(
                           onPressed: () {
                             login();

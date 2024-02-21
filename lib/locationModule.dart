@@ -1,8 +1,3 @@
-import 'package:SnapTrash/main.dart';
-import 'package:SnapTrash/pages/locationPages/locationPrompt.dart';
-import 'package:SnapTrash/properties/colourProp.dart';
-import 'package:camera/camera.dart';
-import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 

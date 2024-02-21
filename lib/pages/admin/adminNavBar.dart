@@ -1,19 +1,22 @@
 import 'package:SnapTrash/locationModule.dart';
+import 'package:SnapTrash/pages/admin/adminHomePage.dart';
+import 'package:SnapTrash/pages/admin/reportHistory.dart';
 import 'package:SnapTrash/pages/cameraScreen.dart';
+import 'package:SnapTrash/pages/loginSignin/logout/logout.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:SnapTrash/pages/leaderBoard.dart';
 import 'package:SnapTrash/pages/localReports.dart';
 import 'package:SnapTrash/properties/colourProp.dart';
 
-class homeScreen extends StatefulWidget {
-  const homeScreen({super.key});
+class AdminNavBar extends StatefulWidget {
+  const AdminNavBar({super.key});
 
   @override
-  State<homeScreen> createState() => _homeScreenState();
+  State<AdminNavBar> createState() => _AdminNavBarState();
 }
 
-class _homeScreenState extends State<homeScreen> {
+class _AdminNavBarState extends State<AdminNavBar> {
   int _selectedIndex = 1;
 
   void _navigateBottomBar(int index) {
@@ -25,9 +28,9 @@ class _homeScreenState extends State<homeScreen> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
-    LeaderBoard(),
-    ClipRRect(child: CameraMain()),
-    LocalReports(),
+    Scaffold(),
+    AdminHomePage(),
+    AdminReportHistory(),
   ];
 
   @override
@@ -97,22 +100,22 @@ class _homeScreenState extends State<homeScreen> {
                   GButton(
                     iconActiveColor: rang7,
                     iconColor: rang7,
-                    icon: Icons.format_list_numbered_rounded,
+                    icon: Icons.map_outlined,
                     textColor: rang7,
-                    text: 'Rank',
+                    text: 'Map',
                     textSize: screenheight,
                   ),
                   const GButton(
                     iconActiveColor: rang7,
                     iconColor: rang7,
-                    icon: Icons.photo_camera_outlined,
+                    icon: Icons.report_gmailerrorred,
                     textColor: rang7,
-                    text: '',
+                    text: 'Dashboard',
                   ),
                   const GButton(
                     iconActiveColor: rang7,
                     iconColor: rang7,
-                    icon: Icons.upcoming_outlined,
+                    icon: Icons.history,
                     textColor: rang7,
                     text: 'Reports',
                   ),
