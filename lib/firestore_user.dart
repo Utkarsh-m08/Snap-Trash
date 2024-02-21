@@ -10,6 +10,7 @@ class FirestoreUser {
       'caption': caption,
       'location': location,
       'user': user!.uid,
+      'status': 0,
     }).then((_) => print('Added to Firestore')
       ).catchError((error) => print('Error adding data: $error')
     );
