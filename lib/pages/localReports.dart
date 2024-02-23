@@ -99,7 +99,7 @@ class _ReportsHistoryState extends State<ReportsHistory> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return SizedBox(
-            height: screenHeight * 0.77,
+            height: screenHeight * 0.5,
             child: const Center(
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(rangBackground),

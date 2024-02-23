@@ -23,6 +23,9 @@ class _LocationPromptPageState extends State<LocationPromptPage> {
   String? locationMessage;
   bool locationLoaded = false;
   bool captionLoaded = false;
+  bool categorySelected1 = false;
+  bool categorySelected2 = false;
+  bool categorySelected3 = false;
   TextEditingController _captionController = TextEditingController();
 
   // for location to work
@@ -134,6 +137,7 @@ class _LocationPromptPageState extends State<LocationPromptPage> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    // bool categorySelected = false;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -170,9 +174,10 @@ class _LocationPromptPageState extends State<LocationPromptPage> {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
-                        height: screenHeight * 0.53,
+                        height: screenHeight * 0.59,
                         color: rang6,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             TextField(
                               controller: _captionController,
@@ -239,84 +244,108 @@ class _LocationPromptPageState extends State<LocationPromptPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  height: screenHeight * 0.035,
-                                  width: screenWidth * 0.3,
-                                  decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 33, 72, 243),
-                                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                                  ),
-                                  child: Text(
-                                    'Dry Waste',
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      categorySelected1 = !categorySelected1;
+                                    });
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: screenHeight * 0.035,
+                                    width: screenWidth * 0.3,
+                                    decoration: BoxDecoration(
+                                      color: !categorySelected1 ? Color.fromARGB(255, 33, 72, 243) : Color.fromARGB(255, 2, 23, 116),
+                                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                                    ),
+                                    child: Text(
+                                      'Dry Waste',
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  height: screenHeight * 0.035,
-                                  width: screenWidth * 0.3,
-                                  decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 33, 72, 243),
-                                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                                  ),
-                                  child: Text(
-                                    'Recyclable',
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      categorySelected2 = !categorySelected2;
+                                    });
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: screenHeight * 0.035,
+                                    width: screenWidth * 0.3,
+                                    decoration: BoxDecoration(
+                                      color: categorySelected2 ? Color.fromARGB(255, 2, 23, 116) : Color.fromARGB(255, 33, 72, 243),
+                                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                                    ),
+                                    child: Text(
+                                      'Recyclable',
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  height: screenHeight * 0.035,
-                                  width: screenWidth * 0.3,
-                                  decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 33, 72, 243),
-                                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                                  ),
-                                  child: Text(
-                                    'Burnable',
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      categorySelected3 = !categorySelected3;
+                                    });
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: screenHeight * 0.035,
+                                    width: screenWidth * 0.3,
+                                    decoration: BoxDecoration(
+                                      color: !categorySelected3 ? Color.fromARGB(255, 33, 72, 243) : Color.fromARGB(255, 2, 23, 116),
+                                      borderRadius: BorderRadius.all(Radius.circular(20)),
                                     ),
-                                  )
+                                    child: Text(
+                                      'Burnable',
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
                             SizedBox(height: screenHeight * 0.04),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                  builder: (context) => ReportPage(location: locationMessage!,),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                    builder: (context) => ReportPage(location: locationMessage!,),
+                                    ),
+                                  );
+                                  FirestoreUser().addData(base64Image, _captionController.text, locationMessage!);
+                                },
+                                child: Container(
+                                  height: screenHeight * 0.045,
+                                  width: screenWidth * 0.35,
+                                  alignment: Alignment.center,
+                                  decoration: const BoxDecoration(
+                                    color: Color.fromARGB(255, 14, 20, 195),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
                                   ),
-                                );
-                                FirestoreUser().addData(base64Image, _captionController.text, locationMessage!);
-                              },
-                              child: Container(
-                                height: screenHeight * 0.045,
-                                width: screenWidth * 0.35,
-                                alignment: Alignment.center,
-                                decoration: const BoxDecoration(
-                                  color: Color.fromARGB(255, 14, 20, 195),
-                                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                                ),
-                                child: Text(
-                                  'Report',
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w700
+                                  child: Text(
+                                    'Report',
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700
+                                    ),
                                   ),
                                 ),
                               ),
