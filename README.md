@@ -18,7 +18,7 @@ SnapTrash is a mobile application developed in Flutter that empowers users to re
 ![WhatsApp Image 2023-10-26 at 15 45 20_298d3a23](https://github.com/Utkarsh-m08/Snap-Trash/blob/main/assets/images/demoScreenshots/Screenshot_1708867825.png)
 
 ## Working Mode : 
-![SnapTrash](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/a5ebf989-db35-49ca-8edd-0d516a95a545)
+![SnapTrash](https://github.com/Utkarsh-m08/Snap-Trash/blob/main/assets/images/demoScreenshots/WhatsApp%20Video%202024-02-25%20at%2019.20.49.mp4)
 
 
 ## Future Prospects
