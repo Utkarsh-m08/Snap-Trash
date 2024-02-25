@@ -12,12 +12,10 @@ SnapTrash is a mobile application developed in Flutter that empowers users to re
 
 ## SnapShots of Working Prototype : 
 
-![WhatsApp Image 2023-10-25 at 20 00 37_0f160569](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/c555e10c-ad07-4eb9-ba4a-4ecfe948cfcd)
-![WhatsApp Image 2023-10-25 at 20 00 36_502bc242](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/29f48f98-8f43-48ec-bf79-c0f1aeeb46b2)
-![WhatsApp Image 2023-10-25 at 20 00 36_792b0d91](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/e536ba5d-c29a-48db-aed5-99670dc7a36a)
-![WhatsApp Image 2023-10-26 at 15 45 20_298d3a23](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/bd225275-06ea-43c7-84c4-e0dbcf02dca2)
-![WhatsApp Image 2023-10-26 at 15 45 24_3cda1589](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/b36f282e-d882-428d-826c-8d5143be215c)
-![WhatsApp Image 2023-10-26 at 15 45 24_bf2ae662](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/f039865d-300a-4c45-8556-f68c17581bda)
+![WhatsApp Image 2023-10-25 at 20 00 37_0f160569](https://github.com/Utkarsh-m08/Snap-Trash/blob/main/assets/images/demoScreenshots/Screenshot_1708866934.png)
+![WhatsApp Image 2023-10-25 at 20 00 36_502bc242](https://github.com/Utkarsh-m08/Snap-Trash/blob/main/assets/images/demoScreenshots/Screenshot_1708867598.png)
+![WhatsApp Image 2023-10-25 at 20 00 36_792b0d91](https://github.com/Utkarsh-m08/Snap-Trash/blob/main/assets/images/demoScreenshots/Screenshot_1708867723.png)
+![WhatsApp Image 2023-10-26 at 15 45 20_298d3a23](https://github.com/Utkarsh-m08/Snap-Trash/blob/main/assets/images/demoScreenshots/Screenshot_1708867825.png)
 
 ## Working Mode : 
 ![SnapTrash](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/a5ebf989-db35-49ca-8edd-0d516a95a545)
