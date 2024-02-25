@@ -1,6 +1,7 @@
 import 'package:SnapTrash/locationModule.dart';
 import 'package:SnapTrash/pages/admin/adminHomePage.dart';
 import 'package:SnapTrash/pages/admin/reportHistory.dart';
+import 'package:SnapTrash/pages/admin/reportMap.dart';
 import 'package:SnapTrash/pages/cameraScreen.dart';
 import 'package:SnapTrash/pages/loginSignin/logout/logout.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class _AdminNavBarState extends State<AdminNavBar> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Scaffold(),
+    AdminMap(),
     AdminHomePage(),
     AdminReportHistory(),
   ];
