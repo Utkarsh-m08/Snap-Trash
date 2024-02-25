@@ -56,7 +56,7 @@ class _CameraMainState extends State<CameraMain> {
                         try {
                           await _initializeControllerFuture;
                           final image = await _controller.takePicture();
-              
+
                           if (!context.mounted) return;
                           await Navigator.of(context).push(
                             MaterialPageRoute(
@@ -70,14 +70,14 @@ class _CameraMainState extends State<CameraMain> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      elevation: 0,
-                    ),
-                    child: Icon(
-                      Icons.circle_outlined,
-                      size: screenHeight * 0.1,
-                      color: rang6,
-                    ),
+                        backgroundColor: Colors.transparent,
+                        elevation: 0,
+                      ),
+                      child: Icon(
+                        Icons.circle_outlined,
+                        size: screenHeight * 0.1,
+                        color: rang6,
+                      ),
                     ),
                   ),
                 ],
@@ -88,7 +88,6 @@ class _CameraMainState extends State<CameraMain> {
           }
         },
       ),
-      
     );
   }
 }
